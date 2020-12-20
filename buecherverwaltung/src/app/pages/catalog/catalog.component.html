@@ -1,0 +1,57 @@
+<div class="w-full max-w-screen-lg mx-auto px-4">
+  <div class="flex justify-end">
+    <app-button-link [routerLink]="'/newBook'">Neues Buch</app-button-link>
+  </div>
+  <div
+    *ngFor="let book of books"
+    class="m-5 w-full flex flex-col p-5 items-right rounded-lg border border-gray-500"
+  >
+    <div class="flex justify-between">
+      <div>
+        <p class="text-sm">{{ book.author }}</p>
+        <h1
+          *ngIf="book.borrowed; else borrowedBlock"
+          class="font-bold text-xl text-red-800"
+        >
+          {{ book.title }} (verliehen)
+        </h1>
+        <ng-template #borrowedBlock>
+          <h1 class="font-bold text-xl text-blue-800">{{ book.title }}</h1>
+        </ng-template>
+
+        <p>{{ book.publisher }} | {{ book.publishYear }}</p>
+      </div>
+      <app-button
+        (onClick)="deleteBook(book.id)"
+        [variant]="'danger'"
+        class="mr-4"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          class="h-6 w-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+          />
+        </svg>
+      </app-button>
+    </div>
+    <div *ngIf="book.borrowed; else elseBlock">
+      <app-button (onClick)="returnBook(book.id)" class="mr-4 flex justify-end"
+        >Zurückgeben</app-button
+      >
+      <p class="text-sm flex justify-end mr-6">{{ book.borrowedDate }}</p>
+    </div>
+    <ng-template #elseBlock>
+      <app-button (onClick)="borrowBook(book.id)" class="mr-4 flex justify-end"
+        >Ausleihen</app-button
+      >
+    </ng-template>
+  </div>
+</div>

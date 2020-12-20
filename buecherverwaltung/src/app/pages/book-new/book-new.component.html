@@ -1,0 +1,44 @@
+<div class="w-full max-w-screen-lg mx-auto px-4">
+  <div class="relative p-6 flex-auto">
+    <label for="title" class="font-medium text-sm">Titel</label>
+    <input
+      name="title"
+      placeholder=""
+      type="text"
+      [(ngModel)]="newBook.title"
+      class="w-full mb-2 px-4 py-2 rounded-md bg-gray-200 form-group"
+    />
+    <label for="author" class="font-medium text-sm">Autor</label>
+    <input
+      name="author"
+      placeholder=""
+      type="text"
+      [(ngModel)]="newBook.author"
+      class="w-full mb-2 px-4 py-2 rounded-md bg-gray-200 form-group"
+    />
+    <label for="publisher" class="font-medium text-sm">Verlag</label>
+    <input
+      name="publisher"
+      placeholder=""
+      type="text"
+      [(ngModel)]="newBook.publisher"
+      class="w-full mb-2 px-4 py-2 rounded-md bg-gray-200 form-group"
+    />
+    <label for="publishYear" class="font-medium text-sm"
+      >Erscheinungsjahr</label
+    >
+    <input
+      name="publishYear"
+      placeholder=""
+      type="text"
+      [(ngModel)]="newBook.publishYear"
+      class="w-full mb-2 px-4 py-2 rounded-md bg-gray-200 form-group"
+    />
+  </div>
+  <div class="flex items-center pr-6 justify-end">
+    <app-button-link [routerLink]="'/catalog'" [variant]="'danger'">
+      Zurück
+    </app-button-link>
+    <app-button (onClick)="postBook()" class="ml-4"> Hinzufügen </app-button>
+  </div>
+</div>

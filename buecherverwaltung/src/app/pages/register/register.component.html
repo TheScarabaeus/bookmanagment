@@ -1,0 +1,46 @@
+<div class="min-h-screen px-4 flex items-start justify-center">
+  <div class="w-full max-w-md">
+    <form>
+      <label for="email" class="font-medium text-sm">E-Mail</label>
+      <input
+        name="email"
+        placeholder="max.mustermann@example.de"
+        type="text"
+        [(ngModel)]="formData.email"
+        class="w-full mb-2 px-4 py-2 rounded-md bg-gray-200 form-group"
+      />
+      <label for="password" class="font-medium text-sm">Passwort</label>
+      <input
+        name="password"
+        placeholder=""
+        type="password"
+        [(ngModel)]="formData.password"
+        class="w-full mb-2 px-4 py-2 rounded-md bg-gray-200 form-group"
+      />
+      <label for="password" class="font-medium text-sm"
+        >Passwort wiederholen</label
+      >
+      <input
+        name="password"
+        placeholder=""
+        type="password"
+        [(ngModel)]="confirmPassword"
+        class="w-full px-4 py-2 rounded-md bg-gray-200 form-group"
+      />
+      <p *ngIf="!equalPasswords" class="text-sm text-red-600">
+        Die Passwörter stimmen nicht überein!
+      </p>
+      <div class="m-4 flex justify-end">
+        <app-button
+          (click)="handleSubmit()"
+          [type]="'submit'"
+          [variant]="'primary'"
+          [size]="'normal'"
+          [isLoading]="isSubmitting"
+        >
+          Registrieren
+        </app-button>
+      </div>
+    </form>
+  </div>
+</div>

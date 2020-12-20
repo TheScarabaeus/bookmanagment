@@ -1,0 +1,13 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html,
+body {
+  @apply bg-white;
+  @apply text-gray-700;
+}
+
+[data-js-focus-visible] :focus:not([data-focus-visible-added]) {
+  outline: none;
+}

@@ -1,0 +1,28 @@
+<div
+  class="w-full max-w-screen-lg mx-auto px-4 py-12 grid sm:grid-cols-2 gap-4"
+>
+  <div class="flex flex-col justify-center">
+    <h1 class="text-4xl">
+      <strong class="text-blue-800">Ihre Bücherverwaltung</strong>
+    </h1>
+
+    <p class="mt-4 text-xl">Hier können Sie ihre Bücher verwalten!</p>
+
+    <div class="mt-8 flex flex-wrap">
+      <app-button-link
+        [variant]="'primary'"
+        [routerLink]="'/login'"
+        [size]="'normal'"
+        class="mr-4 mb-4 block"
+        >Einloggen</app-button-link
+      >
+      <app-button-link
+        [variant]="'primary'"
+        [routerLink]="'/register'"
+        [size]="'normal'"
+        class="mr-4 mb-4 block"
+        >Registrieren</app-button-link
+      >
+    </div>
+  </div>
+</div>
