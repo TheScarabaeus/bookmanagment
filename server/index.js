@@ -59,8 +59,9 @@ app.get("/books", (req, res, next) => {
  * REST endpoint to add a book.
  */
 app.post("/books", (req, res, next) => {
+  console.log("test")
 	let book = req.body
-	book.id = generateId()
+  book.id = "" + generateId()
 	books.push(book)
 	res.send(books)
 })
